@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Hexo</title>
+    <title>Golden Pigeon&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
-    <meta name="author" content="John Doe">
+    <meta name="author" content="Golden Pigeon">
     
 
     
     <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="Golden Pigeon&#39;s Blog">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Golden Pigeon&#39;s Blog">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:author" content="John Doe">
+<meta property="article:author" content="Golden Pigeon">
 <meta name="twitter:card" content="summary">
 
     
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Golden Pigeon&#39;s Blog" type="application/atom+xml">
     
     
     <link rel="icon" href="/img/favicon.ico">
@@ -42,12 +42,12 @@
 <div>
 		
 			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="Hexo" title="Hexo"/></a>
+				<a href="/"><img src="/img/logo.png" alt="Golden Pigeon&#39;s Blog" title="Golden Pigeon&#39;s Blog"/></a>
 			</div>
 			
 			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="Hexo">Hexo</a></h1>
-				<h2 class="blog-motto"></h2>
+				<h1 class="site-name"><a href="/" title="Golden Pigeon&#39;s Blog">Golden Pigeon&#39;s Blog</a></h1>
+				<h2 class="blog-motto">GP</h2>
 			</div>
 			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
 			</a></div>
@@ -83,11 +83,106 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2019/12/12/My-journey-of-Python-Crawler-Learning-1/" title="My Journey of Python Crawler Learning &lt;1&gt;" itemprop="url">My Journey of Python Crawler Learning &lt;1&gt;</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Golden Pigeon" target="_blank" itemprop="author">Golden Pigeon</a>
+		
+  <p class="article-time">
+    <time datetime="2019-12-12T09:11:36.000Z" itemprop="datePublished"> Published 2019-12-12</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="Python爬虫学习之路（1）"><a href="#Python爬虫学习之路（1）" class="headerlink" title="Python爬虫学习之路（1）"></a>Python爬虫学习之路（1）</h1><h2 id="爬取我的博客主页面的源代码"><a href="#爬取我的博客主页面的源代码" class="headerlink" title="爬取我的博客主页面的源代码"></a>爬取我的博客主页面的源代码</h2><hr>
+<h2 id="1-向发送服务器发送请求"><a href="#1-向发送服务器发送请求" class="headerlink" title="1.向发送服务器发送请求"></a>1.向发送服务器发送请求</h2><p>要获取网页中的相关信息，首先应当向服务器发送一个<code>request</code>。<br>导入<code>^request</code>包以使用该功能： </p>
+<pre><code class="Python"><span class="keyword">import</span> request</code></pre>
+<hr>
+<h2 id="2-使用get-方法获取网页信息"><a href="#2-使用get-方法获取网页信息" class="headerlink" title="2.使用get()方法获取网页信息"></a>2.使用get()方法获取网页信息</h2><pre><code class="Python">url = <span class="string">'https://golden-pigeon.github.io/'</span>
+strhtml = requests.get(url)//strhtml储存了网页的信息</code></pre>
+<hr>
+<h2 id="3-输出网页源代码"><a href="#3-输出网页源代码" class="headerlink" title="3.输出网页源代码"></a>3.输出网页源代码</h2><p><code>strhtml</code>对象的<code>text</code>成员储存了网页的源代码<br>用<code>print()</code>函数将其输出即可  </p>
+<pre><code class="Python">t=strhtml.text
+print(t)</code></pre>
+<hr>
+<h2 id="4-完整程序"><a href="#4-完整程序" class="headerlink" title="4.完整程序"></a>4.完整程序</h2><pre><code class="Python"><span class="keyword">import</span> requests
+url = <span class="string">'https://golden-pigeon.github.io/'</span>
+strhtml = requests.get(url)
+t=strhtml.text
+print(t)</code></pre>
+<hr>
+<h2 id="5-输出"><a href="#5-输出" class="headerlink" title="5.输出"></a>5.输出</h2><pre><code class="HTML"> <span class="meta">&lt;!DOCTYPE HTML&gt;</span>
+<span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"zh_CN"</span>&gt;</span>
+<span class="tag">&lt;<span class="name">head</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span>
+
+    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Hexo<span class="tag">&lt;/<span class="name">title</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1,user-scalable=no"</span>&gt;</span>
+
+    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"author"</span> <span class="attr">content</span>=<span class="string">"John Doe"</span>&gt;</span>
+
+
+
+    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">"og:type"</span> <span class="attr">content</span>=<span class="string">"website"</span>&gt;</span>
+<span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">"og:title"</span> <span class="attr">content</span>=<span class="string">"Hexo"</span>&gt;</span>
+<span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">"og:url"</span> <span class="attr">content</span>=<span class="string">"http:&amp;#x2F;&amp;#x2F;yoursite.com&amp;#x2F;index.html"</span>&gt;</span>
+<span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">"og:site_name"</span> <span class="attr">content</span>=<span class="string">"Hexo"</span>&gt;</span>
+<span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">"og:locale"</span> <span class="attr">content</span>=<span class="string">"zh_CN"</span>&gt;</span>
+<span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">"article:author"</span> <span class="attr">content</span>=<span class="string">"John Doe"</span>&gt;</span>
+<span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"twitter:card"</span> <span class="attr">content</span>=<span class="string">"summary"</span>&gt;</span>
+
+
+    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"alternative"</span> <span class="attr">href</span>=<span class="string">"/atom.xml"</span> <span class="attr">title</span>=<span class="string">"Hexo"</span> <span class="attr">type</span>=<span class="string">"application/atom+xml"</span>&gt;</span>
+//后略
+</code></pre>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Python-Crawler/">Python Crawler</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2019/12/09/hello-world/" title="Hello World" itemprop="url">Hello World</a>
   </h1>
   <p class="article-author">By
        
-		<a href="/about" title="John Doe" target="_blank" itemprop="author">John Doe</a>
+		<a href="/about" title="Golden Pigeon" target="_blank" itemprop="author">Golden Pigeon</a>
 		
   <p class="article-time">
     <time datetime="2019-12-09T15:39:59.783Z" itemprop="datePublished"> Published 2019-12-09</time>
@@ -159,6 +254,17 @@
   
 
   
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Python-Crawler/" title="Python Crawler">Python Crawler<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
 
   <div class="linkslist">
   <p class="asidetitle">Links</p>
@@ -228,7 +334,7 @@
 		<p class="copyright">
 		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2019 
 		
-		<a href="/about" target="_blank" title="John Doe">John Doe</a>
+		<a href="/about" target="_blank" title="Golden Pigeon">Golden Pigeon</a>
 		
 		
 		</p>

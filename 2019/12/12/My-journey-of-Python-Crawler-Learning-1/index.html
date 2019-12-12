@@ -4,23 +4,24 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Hello World | Golden Pigeon&#39;s Blog</title>
+    <title>My Journey of Python Crawler Learning &lt;1&gt; | Golden Pigeon&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Golden Pigeon">
     
 
     
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+    <meta name="description" content="Python爬虫学习之路（1）爬取我的博客主页面的源代码 1.向发送服务器发送请求要获取网页中的相关信息，首先应当向服务器发送一个request。导入^request包以使用该功能：  import request  2.使用get()方法获取网页信息url &#x3D; &#39;https:&#x2F;&#x2F;golden-pigeon.github.io&#x2F;&#39; strhtml &#x3D; requests.get(url)&#x2F;&#x2F;strh">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;09&#x2F;hello-world&#x2F;index.html">
+<meta property="og:title" content="My Journey of Python Crawler Learning &lt;1&gt;">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;12&#x2F;My-journey-of-Python-Crawler-Learning-1&#x2F;index.html">
 <meta property="og:site_name" content="Golden Pigeon&#39;s Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="Python爬虫学习之路（1）爬取我的博客主页面的源代码 1.向发送服务器发送请求要获取网页中的相关信息，首先应当向服务器发送一个request。导入^request包以使用该功能：  import request  2.使用get()方法获取网页信息url &#x3D; &#39;https:&#x2F;&#x2F;golden-pigeon.github.io&#x2F;&#39; strhtml &#x3D; requests.get(url)&#x2F;&#x2F;strh">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2019-12-09T15:39:59.783Z">
-<meta property="article:modified_time" content="2019-12-09T15:39:59.783Z">
+<meta property="article:published_time" content="2019-12-12T09:11:36.000Z">
+<meta property="article:modified_time" content="2019-12-12T09:43:49.746Z">
 <meta property="article:author" content="Golden Pigeon">
+<meta property="article:tag" content="Python Crawler">
 <meta name="twitter:card" content="summary">
 
     
@@ -85,14 +86,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2019/12/09/hello-world/" title="Hello World" itemprop="url">Hello World</a>
+      <a href="/2019/12/12/My-journey-of-Python-Crawler-Learning-1/" title="My Journey of Python Crawler Learning &lt;1&gt;" itemprop="url">My Journey of Python Crawler Learning &lt;1&gt;</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Golden Pigeon" target="_blank" itemprop="author">Golden Pigeon</a>
 		
   <p class="article-time">
-    <time datetime="2019-12-09T15:39:59.783Z" itemprop="datePublished"> Published 2019-12-09</time>
+    <time datetime="2019-12-12T09:11:36.000Z" itemprop="datePublished"> Published 2019-12-12</time>
     
   </p>
 </header>
@@ -101,28 +102,61 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Python爬虫学习之路（1）"><span class="toc-number">1.</span> <span class="toc-text">Python爬虫学习之路（1）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#爬取我的博客主页面的源代码"><span class="toc-number">1.1.</span> <span class="toc-text">爬取我的博客主页面的源代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-向发送服务器发送请求"><span class="toc-number">1.2.</span> <span class="toc-text">1.向发送服务器发送请求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-使用get-方法获取网页信息"><span class="toc-number">1.3.</span> <span class="toc-text">2.使用get()方法获取网页信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-输出网页源代码"><span class="toc-number">1.4.</span> <span class="toc-text">3.输出网页源代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-完整程序"><span class="toc-number">1.5.</span> <span class="toc-text">4.完整程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-输出"><span class="toc-number">1.6.</span> <span class="toc-text">5.输出</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span></pre></td></tr></table></figure>
+		<h1 id="Python爬虫学习之路（1）"><a href="#Python爬虫学习之路（1）" class="headerlink" title="Python爬虫学习之路（1）"></a>Python爬虫学习之路（1）</h1><h2 id="爬取我的博客主页面的源代码"><a href="#爬取我的博客主页面的源代码" class="headerlink" title="爬取我的博客主页面的源代码"></a>爬取我的博客主页面的源代码</h2><hr>
+<h2 id="1-向发送服务器发送请求"><a href="#1-向发送服务器发送请求" class="headerlink" title="1.向发送服务器发送请求"></a>1.向发送服务器发送请求</h2><p>要获取网页中的相关信息，首先应当向服务器发送一个<code>request</code>。<br>导入<code>^request</code>包以使用该功能： </p>
+<pre><code class="Python"><span class="keyword">import</span> request</code></pre>
+<hr>
+<h2 id="2-使用get-方法获取网页信息"><a href="#2-使用get-方法获取网页信息" class="headerlink" title="2.使用get()方法获取网页信息"></a>2.使用get()方法获取网页信息</h2><pre><code class="Python">url = <span class="string">'https://golden-pigeon.github.io/'</span>
+strhtml = requests.get(url)//strhtml储存了网页的信息</code></pre>
+<hr>
+<h2 id="3-输出网页源代码"><a href="#3-输出网页源代码" class="headerlink" title="3.输出网页源代码"></a>3.输出网页源代码</h2><p><code>strhtml</code>对象的<code>text</code>成员储存了网页的源代码<br>用<code>print()</code>函数将其输出即可  </p>
+<pre><code class="Python">t=strhtml.text
+print(t)</code></pre>
+<hr>
+<h2 id="4-完整程序"><a href="#4-完整程序" class="headerlink" title="4.完整程序"></a>4.完整程序</h2><pre><code class="Python"><span class="keyword">import</span> requests
+url = <span class="string">'https://golden-pigeon.github.io/'</span>
+strhtml = requests.get(url)
+t=strhtml.text
+print(t)</code></pre>
+<hr>
+<h2 id="5-输出"><a href="#5-输出" class="headerlink" title="5.输出"></a>5.输出</h2><pre><code class="HTML"> <span class="meta">&lt;!DOCTYPE HTML&gt;</span>
+<span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"zh_CN"</span>&gt;</span>
+<span class="tag">&lt;<span class="name">head</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ hexo server</span></pre></td></tr></table></figure>
+    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Hexo<span class="tag">&lt;/<span class="name">title</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1,user-scalable=no"</span>&gt;</span>
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ hexo generate</span></pre></td></tr></table></figure>
+    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"author"</span> <span class="attr">content</span>=<span class="string">"John Doe"</span>&gt;</span>
 
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">"og:type"</span> <span class="attr">content</span>=<span class="string">"website"</span>&gt;</span>
+<span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">"og:title"</span> <span class="attr">content</span>=<span class="string">"Hexo"</span>&gt;</span>
+<span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">"og:url"</span> <span class="attr">content</span>=<span class="string">"http:&amp;#x2F;&amp;#x2F;yoursite.com&amp;#x2F;index.html"</span>&gt;</span>
+<span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">"og:site_name"</span> <span class="attr">content</span>=<span class="string">"Hexo"</span>&gt;</span>
+<span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">"og:locale"</span> <span class="attr">content</span>=<span class="string">"zh_CN"</span>&gt;</span>
+<span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">"article:author"</span> <span class="attr">content</span>=<span class="string">"John Doe"</span>&gt;</span>
+<span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"twitter:card"</span> <span class="attr">content</span>=<span class="string">"summary"</span>&gt;</span>
+
+
+    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"alternative"</span> <span class="attr">href</span>=<span class="string">"/atom.xml"</span> <span class="attr">title</span>=<span class="string">"Hexo"</span> <span class="attr">type</span>=<span class="string">"application/atom+xml"</span>&gt;</span>
+//后略
+</code></pre>
   
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Python-Crawler/">Python Crawler</a>
+  </div>
 
 </div>
 
@@ -130,7 +164,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2019/12/09/hello-world/" data-title="Hello World | Golden Pigeon&#39;s Blog" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2019/12/12/My-journey-of-Python-Crawler-Learning-1/" data-title="My Journey of Python Crawler Learning &lt;1&gt; | Golden Pigeon&#39;s Blog" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -143,14 +177,14 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2019/12/12/My-journey-of-Python-Crawler-Learning-1/" title="My Journey of Python Crawler Learning &lt;1&gt;">
-  <strong>上一篇：</strong><br/>
-  <span>
-  My Journey of Python Crawler Learning &lt;1&gt;</span>
+
+<div class="next">
+<a href="/2019/12/09/hello-world/"  title="Hello World">
+ <strong>下一篇：</strong><br/> 
+ <span>Hello World
+</span>
 </a>
 </div>
-
 
 </nav>
 
@@ -164,7 +198,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Python爬虫学习之路（1）"><span class="toc-number">1.</span> <span class="toc-text">Python爬虫学习之路（1）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#爬取我的博客主页面的源代码"><span class="toc-number">1.1.</span> <span class="toc-text">爬取我的博客主页面的源代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-向发送服务器发送请求"><span class="toc-number">1.2.</span> <span class="toc-text">1.向发送服务器发送请求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-使用get-方法获取网页信息"><span class="toc-number">1.3.</span> <span class="toc-text">2.使用get()方法获取网页信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-输出网页源代码"><span class="toc-number">1.4.</span> <span class="toc-text">3.输出网页源代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-完整程序"><span class="toc-number">1.5.</span> <span class="toc-text">4.完整程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-输出"><span class="toc-number">1.6.</span> <span class="toc-text">5.输出</span></a></li></ol></li></ol>
  
   </div>
 
