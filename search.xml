@@ -21,38 +21,6 @@
     </entry>
     
     
-    
-    <entry>
-      <title>My Journey of Python Crawler Learning &lt;1&gt;</title>
-      <link href="/2019/12/12/My-journey-of-Python-Crawler-Learning-1/"/>
-      <url>/2019/12/12/My-journey-of-Python-Crawler-Learning-1/</url>
-      
-        <content type="html"><![CDATA[<h1 id="Python爬虫学习之路（1）"><a href="#Python爬虫学习之路（1）" class="headerlink" title="Python爬虫学习之路（1）"></a>Python爬虫学习之路（1）</h1><h2 id="爬取我的博客主页面的源代码"><a href="#爬取我的博客主页面的源代码" class="headerlink" title="爬取我的博客主页面的源代码"></a>爬取我的博客主页面的源代码</h2><hr><h2 id="1-向发送服务器发送请求"><a href="#1-向发送服务器发送请求" class="headerlink" title="1.向发送服务器发送请求"></a>1.向发送服务器发送请求</h2><p>要获取网页中的相关信息，首先应当向服务器发送一个<code>request</code>。<br>导入<code>^request</code>包以使用该功能： </p><pre><code class="Python"><span class="keyword">import</span> request</code></pre><hr><h2 id="2-使用get-方法获取网页信息"><a href="#2-使用get-方法获取网页信息" class="headerlink" title="2.使用get()方法获取网页信息"></a>2.使用get()方法获取网页信息</h2><pre><code class="Python">url = <span class="string">'https://golden-pigeon.github.io/'</span>strhtml = requests.get(url)//strhtml储存了网页的信息</code></pre><hr><h2 id="3-输出网页源代码"><a href="#3-输出网页源代码" class="headerlink" title="3.输出网页源代码"></a>3.输出网页源代码</h2><p><code>strhtml</code>对象的<code>text</code>成员储存了网页的源代码<br>用<code>print()</code>函数将其输出即可  </p><pre><code class="Python">t=strhtml.textprint(t)</code></pre><hr><h2 id="4-完整程序"><a href="#4-完整程序" class="headerlink" title="4.完整程序"></a>4.完整程序</h2><pre><code class="Python"><span class="keyword">import</span> requestsurl = <span class="string">'https://golden-pigeon.github.io/'</span>strhtml = requests.get(url)t=strhtml.textprint(t)</code></pre><hr><h2 id="5-输出"><a href="#5-输出" class="headerlink" title="5.输出"></a>5.输出</h2><pre><code class="HTML"> <span class="meta">&lt;!DOCTYPE HTML&gt;</span><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"zh_CN"</span>&gt;</span><span class="tag">&lt;<span class="name">head</span>&gt;</span>  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span>    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Hexo<span class="tag">&lt;/<span class="name">title</span>&gt;</span>    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1,user-scalable=no"</span>&gt;</span>    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"author"</span> <span class="attr">content</span>=<span class="string">"John Doe"</span>&gt;</span>    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">"og:type"</span> <span class="attr">content</span>=<span class="string">"website"</span>&gt;</span><span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">"og:title"</span> <span class="attr">content</span>=<span class="string">"Hexo"</span>&gt;</span><span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">"og:url"</span> <span class="attr">content</span>=<span class="string">"http:&amp;#x2F;&amp;#x2F;yoursite.com&amp;#x2F;index.html"</span>&gt;</span><span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">"og:site_name"</span> <span class="attr">content</span>=<span class="string">"Hexo"</span>&gt;</span><span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">"og:locale"</span> <span class="attr">content</span>=<span class="string">"zh_CN"</span>&gt;</span><span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">"article:author"</span> <span class="attr">content</span>=<span class="string">"John Doe"</span>&gt;</span><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"twitter:card"</span> <span class="attr">content</span>=<span class="string">"summary"</span>&gt;</span>    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"alternative"</span> <span class="attr">href</span>=<span class="string">"/atom.xml"</span> <span class="attr">title</span>=<span class="string">"Hexo"</span> <span class="attr">type</span>=<span class="string">"application/atom+xml"</span>&gt;</span>//后略</code></pre>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> Python Crawler </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Hello World</title>
-      <link href="/2019/12/09/hello-world/"/>
-      <url>/2019/12/09/hello-world/</url>
-      
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ hexo server</span></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ hexo generate</span></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
   
   
 </search>
