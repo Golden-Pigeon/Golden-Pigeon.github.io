@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Learing OpenCV with CPP -- Base Data Type</title>
+      <link href="/2020/07/07/Learing-OpenCV-with-CPP-Base-Data-Type/"/>
+      <url>/2020/07/07/Learing-OpenCV-with-CPP-Base-Data-Type/</url>
+      
+        <content type="html"><![CDATA[<h1 id="OpenCV学习路线（1）——-基本数据类型"><a href="#OpenCV学习路线（1）——-基本数据类型" class="headerlink" title="OpenCV学习路线（1）—— 基本数据类型"></a>OpenCV学习路线（1）—— 基本数据类型</h1><h2 id="基本情况"><a href="#基本情况" class="headerlink" title="基本情况"></a>基本情况</h2><ul><li>基本容器多为固定容量，容量可于创建时指定</li><li>运算效率较高</li><li>OpenCV根据容器的不同容量定义了许多类型别名</li><li>在使用时多使用类型别名以提高开发速度与可读性</li></ul><h2 id="基础类型"><a href="#基础类型" class="headerlink" title="基础类型"></a>基础类型</h2><h3 id="固定矩阵类型cv-Matx"><a href="#固定矩阵类型cv-Matx" class="headerlink" title="固定矩阵类型cv::Matx"></a>固定矩阵类型<strong>cv::Matx</strong></h3><p><strong>Matx</strong>处于基本数据类型继承树的最顶端，其他基本容器多由它继承而来或使用它及它的派生类实现。<strong>Matx</strong>用于储存已知容量的小型数组。它的主要操作列表如下：</p><table><thead><tr><th>功能</th><th>示例</th></tr></thead><tbody><tr><td>默认构造</td><td>Matx&lt;4, 4, float&gt; mat44f; Matx34d mat34d;</td></tr><tr><td>拷贝</td><td>Matx22d mat22d(other);</td></tr><tr><td>值构造</td><td>Matx23d mat23d(x1, x2, x3, x4, x5, x6);</td></tr><tr><td>含相同元素的矩阵</td><td>m1.all(m2);</td></tr><tr><td>全一矩阵</td><td>Matx22d.ones();</td></tr><tr><td>全零矩阵</td><td>Matx22d.zeros();</td></tr><tr><td>单位阵</td><td>Matx33d.eye();</td></tr><tr><td>随机阵</td><td>Matx34d.randu(); //均匀分布 Matx34d.nrandn(); // 正态分布</td></tr><tr><td>成员访问</td><td>m(i); //针对一维数组 m(i, j); //针对二维数组</td></tr><tr><td>运算与比较</td><td>直接使用运算符号</td></tr><tr><td>点积</td><td>m1.dot(m2); m1.ddot(m2); //双精度</td></tr><tr><td>改变形状</td><td>mat19f = mat33f.reshape&lt;1, 9&gt;();</td></tr><tr><td>类型转换</td><td>mat33f = (Matx33f)mat33d;</td></tr><tr><td>在(i, j)处获取n * m的子矩阵</td><td>mat44f.get_minor&lt;n, m&gt;(i, j);</td></tr><tr><td>提取第i行/列</td><td>mat44f.row/col(i);</td></tr><tr><td>提取对角线</td><td>mat44f.diag();</td></tr><tr><td>转置</td><td>mat34f.t();</td></tr><tr><td>逆矩阵</td><td>mat33d.inv(method); //method为计算方法，默认为高斯法</td></tr><tr><td>元素逐一相乘</td><td>m1.mul(m2);</td></tr></tbody></table><p>类型别名命名形式为Matx<u>abc</u><br>其中 a, b为维度，c为数据类型（f-&gt;float; d-&gt;double）  </p><h3 id="固定向量类型cv-Vec"><a href="#固定向量类型cv-Vec" class="headerlink" title="固定向量类型cv::Vec"></a>固定向量类型<strong>cv::Vec</strong></h3><p>未完待续。。。<br>不定时更新（表格太难敲了）</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> OpenCV </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>weekly_report_1(Jan. 6th ~ Jan. 12th)</title>
       <link href="/2020/01/13/weekly-report-1-Jan-6th-Jan-12th/"/>
       <url>/2020/01/13/weekly-report-1-Jan-6th-Jan-12th/</url>

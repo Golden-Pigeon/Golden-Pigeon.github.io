@@ -1,0 +1,557 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh_CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Learing OpenCV with CPP -- Base Data Type | Golden Pigeon&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Golden Pigeon">
+    
+
+    
+    <meta name="description" content="OpenCV学习路线（1）—— 基本数据类型基本情况 基本容器多为固定容量，容量可于创建时指定 运算效率较高 OpenCV根据容器的不同容量定义了许多类型别名 在使用时多使用类型别名以提高开发速度与可读性  基础类型固定矩阵类型cv::MatxMatx处于基本数据类型继承树的最顶端，其他基本容器多由它继承而来或使用它及它的派生类实现。Matx用于储存已知容量的小型数组。它的主要操作列表如下：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Learing OpenCV with CPP -- Base Data Type">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;07&#x2F;07&#x2F;Learing-OpenCV-with-CPP-Base-Data-Type&#x2F;index.html">
+<meta property="og:site_name" content="Golden Pigeon&#39;s Blog">
+<meta property="og:description" content="OpenCV学习路线（1）—— 基本数据类型基本情况 基本容器多为固定容量，容量可于创建时指定 运算效率较高 OpenCV根据容器的不同容量定义了许多类型别名 在使用时多使用类型别名以提高开发速度与可读性  基础类型固定矩阵类型cv::MatxMatx处于基本数据类型继承树的最顶端，其他基本容器多由它继承而来或使用它及它的派生类实现。Matx用于储存已知容量的小型数组。它的主要操作列表如下：">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-07T15:46:19.000Z">
+<meta property="article:modified_time" content="2020-07-07T16:48:47.960Z">
+<meta property="article:author" content="Golden Pigeon">
+<meta property="article:tag" content="OpenCV">
+<meta name="twitter:card" content="summary">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Golden Pigeon&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/ios.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/ios.jpg">
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/%02.css">
+<link rel="stylesheet" href="/.css">
+
+<meta name="generator" content="Hexo 4.1.0"></head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Golden Pigeon&#39;s Blog" title="Golden Pigeon&#39;s Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Golden Pigeon&#39;s Blog">Golden Pigeon&#39;s Blog</a></h1>
+				<h2 class="blog-motto">GP</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2020/07/07/Learing-OpenCV-with-CPP-Base-Data-Type/" title="Learing OpenCV with CPP -- Base Data Type" itemprop="url">Learing OpenCV with CPP -- Base Data Type</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Golden Pigeon" target="_blank" itemprop="author">Golden Pigeon</a>
+		
+  <p class="article-time">
+    <time datetime="2020-07-07T15:46:19.000Z" itemprop="datePublished"> Published 2020-07-07</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#OpenCV学习路线（1）——-基本数据类型"><span class="toc-number">1.</span> <span class="toc-text">OpenCV学习路线（1）—— 基本数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本情况"><span class="toc-number">1.1.</span> <span class="toc-text">基本情况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基础类型"><span class="toc-number">1.2.</span> <span class="toc-text">基础类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#固定矩阵类型cv-Matx"><span class="toc-number">1.2.1.</span> <span class="toc-text">固定矩阵类型cv::Matx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#固定向量类型cv-Vec"><span class="toc-number">1.2.2.</span> <span class="toc-text">固定向量类型cv::Vec</span></a></li></ol></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="OpenCV学习路线（1）——-基本数据类型"><a href="#OpenCV学习路线（1）——-基本数据类型" class="headerlink" title="OpenCV学习路线（1）—— 基本数据类型"></a>OpenCV学习路线（1）—— 基本数据类型</h1><h2 id="基本情况"><a href="#基本情况" class="headerlink" title="基本情况"></a>基本情况</h2><ul>
+<li>基本容器多为固定容量，容量可于创建时指定</li>
+<li>运算效率较高</li>
+<li>OpenCV根据容器的不同容量定义了许多类型别名</li>
+<li>在使用时多使用类型别名以提高开发速度与可读性</li>
+</ul>
+<h2 id="基础类型"><a href="#基础类型" class="headerlink" title="基础类型"></a>基础类型</h2><h3 id="固定矩阵类型cv-Matx"><a href="#固定矩阵类型cv-Matx" class="headerlink" title="固定矩阵类型cv::Matx"></a>固定矩阵类型<strong>cv::Matx</strong></h3><p><strong>Matx</strong>处于基本数据类型继承树的最顶端，其他基本容器多由它继承而来或使用它及它的派生类实现。<strong>Matx</strong>用于储存已知容量的小型数组。它的主要操作列表如下：</p>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>默认构造</td>
+<td>Matx&lt;4, 4, float&gt; mat44f; Matx34d mat34d;</td>
+</tr>
+<tr>
+<td>拷贝</td>
+<td>Matx22d mat22d(other);</td>
+</tr>
+<tr>
+<td>值构造</td>
+<td>Matx23d mat23d(x1, x2, x3, x4, x5, x6);</td>
+</tr>
+<tr>
+<td>含相同元素的矩阵</td>
+<td>m1.all(m2);</td>
+</tr>
+<tr>
+<td>全一矩阵</td>
+<td>Matx22d.ones();</td>
+</tr>
+<tr>
+<td>全零矩阵</td>
+<td>Matx22d.zeros();</td>
+</tr>
+<tr>
+<td>单位阵</td>
+<td>Matx33d.eye();</td>
+</tr>
+<tr>
+<td>随机阵</td>
+<td>Matx34d.randu(); //均匀分布 Matx34d.nrandn(); // 正态分布</td>
+</tr>
+<tr>
+<td>成员访问</td>
+<td>m(i); //针对一维数组 m(i, j); //针对二维数组</td>
+</tr>
+<tr>
+<td>运算与比较</td>
+<td>直接使用运算符号</td>
+</tr>
+<tr>
+<td>点积</td>
+<td>m1.dot(m2); m1.ddot(m2); //双精度</td>
+</tr>
+<tr>
+<td>改变形状</td>
+<td>mat19f = mat33f.reshape&lt;1, 9&gt;();</td>
+</tr>
+<tr>
+<td>类型转换</td>
+<td>mat33f = (Matx33f)mat33d;</td>
+</tr>
+<tr>
+<td>在(i, j)处获取n * m的子矩阵</td>
+<td>mat44f.get_minor&lt;n, m&gt;(i, j);</td>
+</tr>
+<tr>
+<td>提取第i行/列</td>
+<td>mat44f.row/col(i);</td>
+</tr>
+<tr>
+<td>提取对角线</td>
+<td>mat44f.diag();</td>
+</tr>
+<tr>
+<td>转置</td>
+<td>mat34f.t();</td>
+</tr>
+<tr>
+<td>逆矩阵</td>
+<td>mat33d.inv(method); //method为计算方法，默认为高斯法</td>
+</tr>
+<tr>
+<td>元素逐一相乘</td>
+<td>m1.mul(m2);</td>
+</tr>
+</tbody></table>
+<p>类型别名命名形式为Matx<u>abc</u><br>其中 a, b为维度，c为数据类型（f-&gt;float; d-&gt;double）  </p>
+<h3 id="固定向量类型cv-Vec"><a href="#固定向量类型cv-Vec" class="headerlink" title="固定向量类型cv::Vec"></a>固定向量类型<strong>cv::Vec</strong></h3><p>未完待续。。。<br>不定时更新（表格太难敲了）</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/OpenCV/">OpenCV</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2020/07/07/Learing-OpenCV-with-CPP-Base-Data-Type/" data-title="Learing OpenCV with CPP -- Base Data Type | Golden Pigeon&#39;s Blog" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2020/01/13/weekly-report-1-Jan-6th-Jan-12th/"  title="weekly_report_1(Jan. 6th ~ Jan. 12th)">
+ <strong>下一篇：</strong><br/> 
+ <span>weekly_report_1(Jan. 6th ~ Jan. 12th)
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#OpenCV学习路线（1）——-基本数据类型"><span class="toc-number">1.</span> <span class="toc-text">OpenCV学习路线（1）—— 基本数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本情况"><span class="toc-number">1.1.</span> <span class="toc-text">基本情况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基础类型"><span class="toc-number">1.2.</span> <span class="toc-text">基础类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#固定矩阵类型cv-Matx"><span class="toc-number">1.2.1.</span> <span class="toc-text">固定矩阵类型cv::Matx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#固定向量类型cv-Vec"><span class="toc-number">1.2.2.</span> <span class="toc-text">固定向量类型cv::Vec</span></a></li></ol></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github Card</p>
+<div class="github-card" data-github="Golden-Pigeon" data-theme="medium"></div>
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+
+
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Python/" title="Python">Python<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/OpenCV/" title="OpenCV">OpenCV<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://github.com/Golden-Pigeon" target="_blank" title="我的github主页">我的github主页</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Golden Pigeon. <br/>
+			Welcome to my blog!</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/gold_pig2000" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/Golden-Pigeon" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/gold-pig-99" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:GoldenPigeon2000@outlook.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2020 
+		
+		<a href="/about" target="_blank" title="Golden Pigeon">Golden Pigeon</a>
+		
+		
+		</p>
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+		</script>
+		<span id="busuanzi_container_site_pv">
+		本站总访问量<span id="busuanzi_value_site_pv"></span>次
+		</span>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
