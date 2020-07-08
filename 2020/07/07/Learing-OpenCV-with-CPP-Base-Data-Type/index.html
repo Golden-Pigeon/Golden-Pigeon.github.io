@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Learing OpenCV with CPP -- Base Data Type | Golden Pigeon&#39;s Blog</title>
+    <title>Learning OpenCV with CPP -- Base Data Type | Golden Pigeon&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Golden Pigeon">
@@ -13,13 +13,13 @@
     
     <meta name="description" content="OpenCV学习路线（1）—— 基本数据类型基本情况 基本容器多为固定容量，容量可于创建时指定 运算效率较高 OpenCV根据容器的不同容量定义了许多类型别名 在使用时多使用类型别名以提高开发速度与可读性  基础类型固定矩阵类型cv::MatxMatx处于基本数据类型继承树的最顶端，其他基本容器多由它继承而来或使用它及它的派生类实现。Matx用于储存已知容量的小型数组。它的主要操作列表如下：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Learing OpenCV with CPP -- Base Data Type">
+<meta property="og:title" content="Learning OpenCV with CPP -- Base Data Type">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;07&#x2F;07&#x2F;Learing-OpenCV-with-CPP-Base-Data-Type&#x2F;index.html">
 <meta property="og:site_name" content="Golden Pigeon&#39;s Blog">
 <meta property="og:description" content="OpenCV学习路线（1）—— 基本数据类型基本情况 基本容器多为固定容量，容量可于创建时指定 运算效率较高 OpenCV根据容器的不同容量定义了许多类型别名 在使用时多使用类型别名以提高开发速度与可读性  基础类型固定矩阵类型cv::MatxMatx处于基本数据类型继承树的最顶端，其他基本容器多由它继承而来或使用它及它的派生类实现。Matx用于储存已知容量的小型数组。它的主要操作列表如下：">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-07-07T15:46:19.000Z">
-<meta property="article:modified_time" content="2020-07-07T16:48:47.960Z">
+<meta property="article:modified_time" content="2020-07-08T08:52:14.743Z">
 <meta property="article:author" content="Golden Pigeon">
 <meta property="article:tag" content="OpenCV">
 <meta name="twitter:card" content="summary">
@@ -86,7 +86,7 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2020/07/07/Learing-OpenCV-with-CPP-Base-Data-Type/" title="Learing OpenCV with CPP -- Base Data Type" itemprop="url">Learing OpenCV with CPP -- Base Data Type</a>
+      <a href="/2020/07/07/Learing-OpenCV-with-CPP-Base-Data-Type/" title="Learning OpenCV with CPP -- Base Data Type" itemprop="url">Learning OpenCV with CPP -- Base Data Type</a>
   </h1>
   <p class="article-author">By
        
@@ -102,7 +102,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#OpenCV学习路线（1）——-基本数据类型"><span class="toc-number">1.</span> <span class="toc-text">OpenCV学习路线（1）—— 基本数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本情况"><span class="toc-number">1.1.</span> <span class="toc-text">基本情况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基础类型"><span class="toc-number">1.2.</span> <span class="toc-text">基础类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#固定矩阵类型cv-Matx"><span class="toc-number">1.2.1.</span> <span class="toc-text">固定矩阵类型cv::Matx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#固定向量类型cv-Vec"><span class="toc-number">1.2.2.</span> <span class="toc-text">固定向量类型cv::Vec</span></a></li></ol></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#OpenCV学习路线（1）——-基本数据类型"><span class="toc-number">1.</span> <span class="toc-text">OpenCV学习路线（1）—— 基本数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本情况"><span class="toc-number">1.1.</span> <span class="toc-text">基本情况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基础类型"><span class="toc-number">1.2.</span> <span class="toc-text">基础类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#固定矩阵类型cv-Matx"><span class="toc-number">1.2.1.</span> <span class="toc-text">固定矩阵类型cv::Matx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#固定向量类型cv-Vec"><span class="toc-number">1.2.2.</span> <span class="toc-text">固定向量类型cv::Vec</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#点类型cv-Point"><span class="toc-number">1.2.3.</span> <span class="toc-text">点类型cv::Point</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cv-Scalar类型"><span class="toc-number">1.2.4.</span> <span class="toc-text">cv::Scalar类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cv-Size类型"><span class="toc-number">1.2.5.</span> <span class="toc-text">cv::Size类型</span></a></li></ol></li></ol></li></ol>
 		
 		</div>
 		
@@ -198,7 +198,13 @@
 </tr>
 </tbody></table>
 <p>类型别名命名形式为Matx<u>abc</u><br>其中 a, b为维度，c为数据类型（f-&gt;float; d-&gt;double）  </p>
-<h3 id="固定向量类型cv-Vec"><a href="#固定向量类型cv-Vec" class="headerlink" title="固定向量类型cv::Vec"></a>固定向量类型<strong>cv::Vec</strong></h3><p>未完待续。。。<br>不定时更新（表格太难敲了）</p>
+<h3 id="固定向量类型cv-Vec"><a href="#固定向量类型cv-Vec" class="headerlink" title="固定向量类型cv::Vec"></a>固定向量类型<strong>cv::Vec</strong></h3><p><strong>Vec</strong>类继承自<strong>Matx</strong>类。准确来说，它继承自<strong>Matx&lt;_Tp, cn, 1&gt;</strong>，即一个一维数组。<strong>Vec</strong>支持使用下标访问元素，当然，像一维<strong>Matx</strong>一样通过括号访问也是可以的（见上节表格）。此外，三维<strong>Vec</strong>还支持向量的叉乘：<code>vec3d1.cross(vec3d2);</code>。</p>
+<p><strong>Vec</strong>类型别名的命名格式为<code>Vec{2, 3, 4, 6}{b, f, w, I, s, d}</code>其中，s表示<code>short</code>而w表示<code>unsigned short</code>。</p>
+<h3 id="点类型cv-Point"><a href="#点类型cv-Point" class="headerlink" title="点类型cv::Point"></a>点类型cv::Point</h3><p><strong>Point</strong>是OpenCV中最简单的数据类型，它是Point2i的类型别名。在使用时，通常使用类型别名进行操作，如<code>Point{2, 3}{i, f, d}</code>。</p>
+<p><strong>Point</strong>类型可通过点操作符直接访问其成员。同时，它支持<code>dot</code>和<code>cross</code>操作。特别地，通过<code>p.inside(r)</code>可判断点p是否在矩形r内。</p>
+<h3 id="cv-Scalar类型"><a href="#cv-Scalar类型" class="headerlink" title="cv::Scalar类型"></a>cv::Scalar类型</h3><p><strong>Scalar</strong>类型可以理解为是一个四维的点，但它实际上通过继承一个<strong>cv::Vec&lt; _Tp, 4 &gt;</strong>实现。它可以通过<code>mul(s2)</code>函数与另一个<strong>Scalar</strong>类型进行逐元素相乘的运算；通过<code>conj()</code>函数进行共轭运算；通过<code>isReal()</code>进行真值检验（即判断s1, s2, s3是否全部等于0）。</p>
+<h3 id="cv-Size类型"><a href="#cv-Size类型" class="headerlink" title="cv::Size类型"></a>cv::Size类型</h3><p>Size类型类似于一个二维Point，且可用与Point相互转换。</p>
+<p>未完待续。。。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -216,7 +222,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2020/07/07/Learing-OpenCV-with-CPP-Base-Data-Type/" data-title="Learing OpenCV with CPP -- Base Data Type | Golden Pigeon&#39;s Blog" data-tsina="" class="share clearfix">
+	  <div data-url="http://yoursite.com/2020/07/07/Learing-OpenCV-with-CPP-Base-Data-Type/" data-title="Learning OpenCV with CPP -- Base Data Type | Golden Pigeon&#39;s Blog" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -250,7 +256,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#OpenCV学习路线（1）——-基本数据类型"><span class="toc-number">1.</span> <span class="toc-text">OpenCV学习路线（1）—— 基本数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本情况"><span class="toc-number">1.1.</span> <span class="toc-text">基本情况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基础类型"><span class="toc-number">1.2.</span> <span class="toc-text">基础类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#固定矩阵类型cv-Matx"><span class="toc-number">1.2.1.</span> <span class="toc-text">固定矩阵类型cv::Matx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#固定向量类型cv-Vec"><span class="toc-number">1.2.2.</span> <span class="toc-text">固定向量类型cv::Vec</span></a></li></ol></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#OpenCV学习路线（1）——-基本数据类型"><span class="toc-number">1.</span> <span class="toc-text">OpenCV学习路线（1）—— 基本数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本情况"><span class="toc-number">1.1.</span> <span class="toc-text">基本情况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基础类型"><span class="toc-number">1.2.</span> <span class="toc-text">基础类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#固定矩阵类型cv-Matx"><span class="toc-number">1.2.1.</span> <span class="toc-text">固定矩阵类型cv::Matx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#固定向量类型cv-Vec"><span class="toc-number">1.2.2.</span> <span class="toc-text">固定向量类型cv::Vec</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#点类型cv-Point"><span class="toc-number">1.2.3.</span> <span class="toc-text">点类型cv::Point</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cv-Scalar类型"><span class="toc-number">1.2.4.</span> <span class="toc-text">cv::Scalar类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cv-Size类型"><span class="toc-number">1.2.5.</span> <span class="toc-text">cv::Size类型</span></a></li></ol></li></ol></li></ol>
  
   </div>
 
